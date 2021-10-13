@@ -98,6 +98,7 @@ func ShouldNotReceiveOnly(t *testing.T, notExpected string, body fn) {
 // given string over UDP.
 func ShouldReceive(t *testing.T, expected string, body fn) {
 	got, _, contains := get(t, expected, body)
+	t.Logf("Got by UDP:%s\n", got)
 	if !contains {
 		printLocation(t)
 		t.Errorf("Expected to find: %#v", expected)
